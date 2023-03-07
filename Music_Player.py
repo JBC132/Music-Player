@@ -7,7 +7,9 @@ play_layout = [
 ]
 
 volume_layout = [
-    [sg.Slider(range = (0, 100))]
+    [sg.VPush()],
+    [sg.Push(),sg.Slider(range = (0, 100), default_value=100, orientation='h', key='-VOLUME-'),sg.Push()],
+    [sg.VPush()]
 ]
 
 layout = [
