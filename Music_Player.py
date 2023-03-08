@@ -1,9 +1,17 @@
 import PySimpleGUI as sg
 
+import base64
+from io import BytesIO
+from PIL import Image
+
+def base64_image_import(path):
+    image = Image.open(path)
+
 sg.theme('reddit')
 
 play_layout = [
-    [sg.Text('Song name')]
+    [sg.Text('Song name')],
+    #[sg.Button(image_data=),sg.Button(image_data=)]
 ]
 
 volume_layout = [
