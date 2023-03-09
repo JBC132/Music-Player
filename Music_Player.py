@@ -6,12 +6,17 @@ from PIL import Image
 
 def base64_image_import(path):
     image = Image.open(path)
+    buffer = BytesIO()
+    image.save(buffer, format = 'PNG')
+    b64 = (base64.b64encode(buffer.getvalue()))
+    return b64
 
 sg.theme('reddit')
 
 play_layout = [
     [sg.Text('Song name')],
-    #[sg.Button(image_data=),sg.Button(image_data=)]
+    [sg.Button(image_data=base64_image_import('play.png')),
+     sg.Button(image_data=base64_image_import('pause.png'))]
 ]
 
 volume_layout = [
