@@ -14,9 +14,17 @@ def base64_image_import(path):
 sg.theme('reddit')
 
 play_layout = [
-    [sg.Text('Song name')],
-    [sg.Button(image_data=base64_image_import('play.png')),
-     sg.Button(image_data=base64_image_import('pause.png'))]
+    [sg.VPush()],
+    [sg.Push(),sg.Text('Song name', font='Arial 20'),sg.Push()],
+    [sg.VPush()],
+    [
+        sg.Push(),
+        sg.Button(image_data=base64_image_import('play.png'), button_color='white', border_width=0),
+        sg.Button(image_data=base64_image_import('pause.png'), button_color='white', border_width=0),
+        sg.Push()
+    ],
+    [sg.VPush()],
+    [sg.Progress(100, size = (20,20))]
 ]
 
 volume_layout = [
