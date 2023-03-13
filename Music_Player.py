@@ -11,6 +11,9 @@ def base64_image_import(path):
     b64 = (base64.b64encode(buffer.getvalue()))
     return b64
 
+
+
+
 sg.theme('reddit')
 
 play_layout = [
@@ -19,8 +22,9 @@ play_layout = [
     [sg.VPush()],
     [
         sg.Push(),
-        sg.Button(image_data=base64_image_import('play.png'), button_color='white', border_width=0),
-        sg.Button(image_data=base64_image_import('pause.png'), button_color='white', border_width=0),
+        sg.Button(image_data=base64_image_import('play.png'),key = '-PLAY-', button_color='white', border_width=0),
+        sg.Text(' '),
+        sg.Button(image_data=base64_image_import('pause.png'),key = '-PAUSE-', button_color='white', border_width=0),
         sg.Push()
     ],
     [sg.VPush()],
