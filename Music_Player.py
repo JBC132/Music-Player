@@ -4,6 +4,9 @@ import base64
 from io import BytesIO
 from PIL import Image
 
+from pygame import mixer
+mixer.init()
+
 def base64_image_import(path):
     image = Image.open(path)
     buffer = BytesIO()
@@ -11,14 +14,15 @@ def base64_image_import(path):
     b64 = (base64.b64encode(buffer.getvalue()))
     return b64
 
-
-
+path = sg.popup_get_file('Open', no_window=True)
+song_name = path.split('/')[-1].split('.')[0]
+song = mixer.Sound(path)
 
 sg.theme('reddit')
 
 play_layout = [
     [sg.VPush()],
-    [sg.Push(),sg.Text('Song name', font='Arial 20'),sg.Push()],
+    [sg.Push(),sg.Text(song_name, font='Arial 20'),sg.Push()],
     [sg.VPush()],
     [
         sg.Push(),
