@@ -48,8 +48,17 @@ layout = [
 window = sg.Window('Music Player', layout)
 
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=1)
     if event == sg.WIN_CLOSED:
         break
-
+    
+    if event == '-PLAY-':
+        if mixer.get_busy() == False:
+            song.play()
+        else:
+            mixer.unpause()
+    
+    if event == '-PAUSE-':
+        mixer.pause()
+    song.set_volume(values['-VOLUME-'])
 window.close()
