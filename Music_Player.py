@@ -38,7 +38,7 @@ play_layout = [
         sg.Push()
     ],
     [sg.VPush()],
-    [sg.Progress(song_length, size = (20,20))]
+    [sg.Progress(song_length, size = (20,20), key = '-PROGRESS-')]
 ]
 
 volume_layout = [
@@ -60,11 +60,12 @@ while True:
 
     if playing:
         time_since_start = time.get_ticks()
-        window['-PROGRESS-'].update(time_since_start // 1000)
+        window['-PROGRESS-'].update(time_since_start - pause_amount// 1000)
 
     
     if event == '-PLAY-':
         playing = True
+        pause_amount += time.get_ticks() - time_since_start
         if mixer.get_busy() == False:
             song.play()
         else:
