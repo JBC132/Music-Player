@@ -2,8 +2,7 @@
 
 Created Music Player using Python3
 
-![](play_result.png)
-![](volume_result.png)
+![](Play_result.png) ![](Volume_result.png)
 
 ## Dependency
 
