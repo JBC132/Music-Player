@@ -12,3 +12,6 @@ Created Music Player using Python3
 - IO
 - PIL
 - pygame
+
+### Note
+Music will not be played if the file is mp3 
